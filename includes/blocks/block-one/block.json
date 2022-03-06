@@ -3,9 +3,14 @@
 	"name": "sagive/first-block",
 	"version": "0.1.0",
 	"title": "First Block",
-	"category": "text",
+	"category": "sagivos",
 	"icon": "smiley",
 	"description": "The first block!",
+	"attributes": {
+		"listName": { "type": "string" },
+		"videoUrlist": { "type": "string" },
+		"itemsPerRow": { "type": "number" }
+	},
 	"supports": {
 		"html": false
 	},

@@ -127,7 +127,7 @@ module.exports = window["wp"]["i18n"];
   \************************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/third-block","version":"0.1.0","title":"Third Block","category":"text","icon":"smiley","description":"The third block!","supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-three/block-three.js","editorStyle":"file:../../../build/css/block-three.css","style":"file:../../../build/css/style-block-three.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/third-block","version":"0.1.0","title":"Third Block","category":"sagivos","icon":"smiley","description":"The third block!","supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-three/block-three.js","editorStyle":"file:../../../build/css/block-three.css","style":"file:../../../build/css/style-block-three.css"}');
 
 /***/ })
 

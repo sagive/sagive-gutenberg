@@ -38,7 +38,7 @@ add_action( 'init', 'twitchstreams_multiple_blocks_block_init' );
 	// load callback functions
 	if( !empty($blocks) ) {
 		foreach($blocks as $block) {
-			include( plugin_dir_path( __FILE__ ).'callback/'.$block.'-callback.php' );
+			include( plugin_dir_path( __FILE__ ).'includes/blocks/'.$block.'/front.php' );
 		}
 	};
 
@@ -51,3 +51,21 @@ add_action( 'init', 'twitchstreams_multiple_blocks_block_init' );
 function slugify($str) {
 	return str_replace('-', '_', strtolower(sanitize_title($str)));
 }
+
+
+
+/********************************************************
+**  REGISTER NEW BLOCKS CATEGORY
+********************************************************/
+function sagutenberg_plugin_block_categories( $categories ) {
+    return array_merge(
+        $categories,
+        [
+            [
+                'slug'  => 'sagivos',
+                'title' => __( 'Sagive Blocks', 'sagive' ),
+            ],
+        ]
+    );
+}
+add_action( 'block_categories', 'sagutenberg_plugin_block_categories', 10, 2 );

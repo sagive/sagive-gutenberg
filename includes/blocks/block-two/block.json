@@ -3,7 +3,7 @@
 	"name": "sagive/second-block",
 	"version": "0.1.0",
 	"title": "Second Block",
-	"category": "text",
+	"category": "sagivos",
 	"icon": "smiley",
 	"description": "The second block!",
 	"supports": {

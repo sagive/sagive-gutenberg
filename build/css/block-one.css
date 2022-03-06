@@ -9,7 +9,7 @@
 .wp-block-sagive-first-block {
   border: 1px dotted red;
 }
-.wp-block-sagive-first-block .widget-label {
+.wp-block-sagive-first-block .block-label {
   background: #f9f9f9;
   font-size: 12px;
   font-style: italic;
@@ -17,6 +17,12 @@
   padding: 2px 5px;
   border-radius: 3px;
   margin-bottom: 5px;
+}
+.wp-block-sagive-first-block .galleryContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 /*# sourceMappingURL=block-one.css.map*/

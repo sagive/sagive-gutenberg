@@ -7,5 +7,11 @@
 .wp-block-sagive-first-block {
 	border: 1px dotted red;
 
-	.widget-label {background: #f9f9f9; font-size: 12px; font-style: italic; color: #444; padding: 2px 5px; border-radius: 3px; margin-bottom: 5px;}
+	.block-label {background: #f9f9f9; font-size: 12px; font-style: italic; color: #444; padding: 2px 5px; border-radius: 3px; margin-bottom: 5px;}
+	
+	.galleryContainer {
+		display: grid;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+	}
 }

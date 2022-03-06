@@ -18,13 +18,106 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./includes/blocks/block-one/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./includes/blocks/block-one/editor.scss");
 
 
 
 
-function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('First Block – hello from the editor!', 'multiple-blocks'));
+
+function Edit({
+  attributes: {
+    listName,
+    videoUrlist,
+    itemsPerRow
+  },
+  setAttributes
+}) {
+  let items_per_row = itemsPerRow ? itemsPerRow : 3;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "block-label"
+  }, "Youtube Playlist Gallery"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
+    width: "560",
+    height: "315",
+    src: videoUrlist ? fixYoutubeURL(videoUrlist) : 'https://www.youtube.com/embed/EuDX4qfQb9c',
+    title: "YouTube video player",
+    frameborder: "0",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+    allowfullscreen: true
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "galleryContainer",
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(' + items_per_row + ', 1fr'
+    }
+  }, videoUrlist && videoUrlist.length > 0 && videoUrlist.split('\n').map((url, index) => {
+    if (url.length > 0) {
+      let src = "https://img.youtube.com/vi/" + getYoutubeId(url) + "/0.jpg";
+      let nam = listName ? listName : 'Youtube Playlist';
+      let alt = nam + ' ' + (index + 1);
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        id: index
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        src: src,
+        alt: alt
+      }));
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Options', 'sagive')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Playlist Name', 'sagive'),
+    value: listName,
+    onChange: newListName => setAttributes({
+      listName: newListName
+    }),
+    type: "text",
+    help: "Would act as alt (num) text for the image"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('list of videos (urls) - one per line', 'sagive'),
+    rows: 4,
+    value: videoUrlist,
+    onChange: newVideoUrlist => setAttributes({
+      videoUrlist: newVideoUrlist
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('item per row', 'sagive'),
+    allowReset: true,
+    resetFallbackValue: 3,
+    step: 1,
+    withInputField: false,
+    separatorType: "none",
+    trackColor: "green",
+    isShiftStepEnabled: true,
+    value: itemsPerRow,
+    onChange: newItemsPerRow => setAttributes({
+      itemsPerRow: newItemsPerRow
+    }),
+    min: 0,
+    max: 5
+  }))));
+}
+
+function fixYoutubeURL(videoUrlist) {
+  if (videoUrlist && videoUrlist.length > 0) {
+    // split by new line
+    let urls = videoUrlist.split('\n');
+
+    if (urls[0] && urls[0].indexOf('youtube.com') > -1) {
+      return urls[0].replace('watch?v=', 'embed/');
+    }
+
+    return url;
+  }
+}
+
+function getYoutubeId(vidUrl) {
+  if (vidUrl.length > 0) {
+    let parts = vidUrl.split('/');
+    let last = parts.at(-1);
+    let id = last.split('=');
+    return id.length > 1 ? id[1] : id[0];
+  }
 }
 
 /***/ }),
@@ -101,6 +194,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -127,7 +230,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/first-block","version":"0.1.0","title":"First Block","category":"text","icon":"smiley","description":"The first block!","supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-one/block-one.js","editorStyle":"file:../../../build/css/block-one.css","style":"file:../../../build/css/style-block-one.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/first-block","version":"0.1.0","title":"First Block","category":"sagivos","icon":"smiley","description":"The first block!","attributes":{"listName":{"type":"string"},"videoUrlist":{"type":"string"},"itemsPerRow":{"type":"number"}},"supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-one/block-one.js","editorStyle":"file:../../../build/css/block-one.css","style":"file:../../../build/css/style-block-one.css"}');
 
 /***/ })
 
