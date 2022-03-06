@@ -1,0 +1,11 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-sagive-first-block {
+	border: 1px dotted red;
+
+	.widget-label {background: #f9f9f9; font-size: 12px; font-style: italic; color: #444; padding: 2px 5px; border-radius: 3px; margin-bottom: 5px;}
+}

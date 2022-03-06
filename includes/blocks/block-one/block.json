@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "sagive/first-block",
+	"version": "0.1.0",
+	"title": "First Block",
+	"category": "text",
+	"icon": "smiley",
+	"description": "The first block!",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sagive",
+	"editorScript": "file:../../../build/block-one/block-one.js",
+	"editorStyle": "file:../../../build/css/block-one.css",
+	"style": "file:../../../build/css/style-block-one.css"
+}
