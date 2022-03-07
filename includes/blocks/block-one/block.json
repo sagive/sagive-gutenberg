@@ -2,10 +2,10 @@
 	"apiVersion": 2,
 	"name": "sagive/first-block",
 	"version": "0.1.0",
-	"title": "First Block",
+	"title": "Youtube playlist gallery",
 	"category": "sagivos",
-	"icon": "smiley",
-	"description": "The first block!",
+	"icon": "format-video",
+	"description": "easy to use, url list to a working youtube playlist",
 	"attributes": {
 		"listName": { "type": "string" },
 		"videoUrlist": { "type": "string" },

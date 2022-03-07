@@ -19,8 +19,9 @@ Immidate tasks:
 * better image widget with on image classes, auto alt name based on file etc.
 
 
-
-
+### Current Blocks
+* Shortcode Extended
+* Youtube playlist gallery
 
 
 ### Insperation

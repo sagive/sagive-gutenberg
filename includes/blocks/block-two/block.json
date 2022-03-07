@@ -2,10 +2,16 @@
 	"apiVersion": 2,
 	"name": "sagive/second-block",
 	"version": "0.1.0",
-	"title": "Second Block",
+	"title": "Shortcode (extended)",
 	"category": "sagivos",
-	"icon": "smiley",
-	"description": "The second block!",
+	"icon": "editor-code",
+	"description": "A better shortcode block that comes with a wrapper element etc.",
+	"attributes": {
+		"shortcode": { "type": "string" },
+		"wrapper": { "type": "string" },
+		"wrapperClass": { "type": "string" },
+		"wrapperId": { "type": "string" }
+	},
 	"supports": {
 		"html": false
 	},

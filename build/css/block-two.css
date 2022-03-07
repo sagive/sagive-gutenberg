@@ -6,8 +6,24 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-sagive-second-block {
-  border: 1px dotted red;
+.wp-block-sagive-second-block .w70 {
+  width: 70%;
+}
+.wp-block-sagive-second-block .w33 {
+  width: 33%;
+}
+.wp-block-sagive-second-block .pr10 {
+  padding-right: 10px;
+}
+.wp-block-sagive-second-block .flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.wp-block-sagive-second-block .flexWrap label {
+  margin: 6px 0 2px !important;
 }
 
 /*# sourceMappingURL=block-two.css.map*/

@@ -1,14 +1,15 @@
 <?php
 /**
- * Plugin Name:       Sagive Gutenberg Blocks
- * Description:       This has multiple blocks.
- * Requires at least: 5.8
- * Requires PHP:      7.0
- * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       multiple-blocks
+ * Plugin Name:       	Sagive Gutenberg Blocks
+ * Plugin URI:  		https://github.com/sagive/sagive-gutenberg
+ * Author:            	Sagive SEO
+ * Description:       	This has multiple blocks.
+ * Requires at least: 	5.8
+ * Requires PHP:      	7.0
+ * Version:           	0.1.3
+ * License:           	MIT
+ * License URI:       	https://opensource.org/licenses/MIT
+ * Text Domain:       	multiple-blocks
  *
  * @package           sagive
  */
@@ -16,7 +17,7 @@
 
 $blocks = array(
 	'block-one',		// Youtube Playlist Gallery (Manual)
-	'block-two',		// better shortcode 
+	'block-two',		// Shortcode (improved)
 	'block-three',
 );
 

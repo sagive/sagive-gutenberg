@@ -18,13 +18,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./includes/blocks/block-two/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./includes/blocks/block-two/editor.scss");
 
 
 
 
-function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('2nd Block – hello from the editor!', 'multiple-blocks'));
+
+function Edit({
+  attributes: {
+    shortcode,
+    wrapper,
+    wrapperClass,
+    wrapperId
+  },
+  setAttributes
+}) {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "block-label"
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "dashicons dashicons-editor-code"
+  }), " Shortcode ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "pull-right"
+  }, "show options ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "dashicons dashicons-menu-alt2"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter shorcode here:', 'sagive'),
+    value: shortcode,
+    onChange: newShortcode => setAttributes({
+      shortcode: newShortcode
+    }),
+    type: "text"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flexWrap"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w33 pr10"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wrapper:', 'sagive'),
+    value: wrapper,
+    onChange: newWrapper => setAttributes({
+      wrapper: newWrapper
+    }),
+    options: [{
+      value: null,
+      label: 'Wrapper type'
+    }, {
+      value: 'div',
+      label: '<div>'
+    }, {
+      value: 'section',
+      label: '<section>'
+    }, {
+      value: 'p',
+      label: '<p>'
+    }]
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w33 pr10"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wrapper Class:', 'sagive'),
+    value: wrapperClass,
+    onChange: newWrapperClass => setAttributes({
+      wrapperClass: newWrapperClass
+    }),
+    type: "text"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w33"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wrapper ID:', 'sagive'),
+    value: wrapperId,
+    onChange: newWrapperId => setAttributes({
+      wrapperId: newWrapperId
+    }),
+    type: "text"
+  }))));
 }
 
 /***/ }),
@@ -101,6 +168,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -127,7 +204,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/second-block","version":"0.1.0","title":"Second Block","category":"sagivos","icon":"smiley","description":"The second block!","supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-two/block-two.js","editorStyle":"file:../../../build/css/block-two.css","style":"file:../../../build/css/style-block-two.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/second-block","version":"0.1.0","title":"Shortcode (extended)","category":"sagivos","icon":"editor-code","description":"A better shortcode block that comes with a wrapper element etc.","attributes":{"shortcode":{"type":"string"},"wrapper":{"type":"string"},"wrapperClass":{"type":"string"},"wrapperId":{"type":"string"}},"supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-two/block-two.js","editorStyle":"file:../../../build/css/block-two.css","style":"file:../../../build/css/style-block-two.css"}');
 
 /***/ })
 

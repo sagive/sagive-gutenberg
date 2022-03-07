@@ -259,7 +259,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/first-block","version":"0.1.0","title":"First Block","category":"sagivos","icon":"smiley","description":"The first block!","attributes":{"listName":{"type":"string"},"videoUrlist":{"type":"string"},"itemsPerRow":{"type":"number"}},"supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-one/block-one.js","editorStyle":"file:../../../build/css/block-one.css","style":"file:../../../build/css/style-block-one.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"sagive/first-block","version":"0.1.0","title":"Youtube playlist gallery","category":"sagivos","icon":"format-video","description":"easy to use, url list to a working youtube playlist","attributes":{"listName":{"type":"string"},"videoUrlist":{"type":"string"},"itemsPerRow":{"type":"number"}},"supports":{"html":false},"textdomain":"sagive","editorScript":"file:../../../build/block-one/block-one.js","editorStyle":"file:../../../build/css/block-one.css","style":"file:../../../build/css/style-block-one.css"}');
 
 /***/ })
 
