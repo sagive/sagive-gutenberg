@@ -25,8 +25,8 @@ Immidate tasks:
 
 
 ### Insperation
-* [snippets, images and information about gutenberg tools](https://wp-gb.com/)
-* [The Block Editor project for WordPress and beyond.](https://github.com/WordPress/gutenberg)
-* [Multiblock template by Ryan Welcher](https://www.npmjs.com/package/@ryanwelcher/multiple-blocks-template)
-* [Ryan Welcher Youtube channel](https://www.youtube.com/channel/UC_kRIqFHtN8ccB_mTmHyGDg)
-* [WpBros Channel](https://www.youtube.com/channel/UCp__xlX9hHT3oPbnxK-Ch_g)https://github.com/ryanwelcher/twitch
+* snippets, images and information about gutenberg tools (https://wp-gb.com/)
+* The Block Editor project for WordPress and beyond. (https://github.com/WordPress/gutenberg)
+* Multiblock template by Ryan Welcher (https://www.npmjs.com/package/@ryanwelcher/multiple-blocks-template)
+* Ryan Welcher Youtube channel](https://www.youtube.com/channel/UC_kRIqFHtN8ccB_mTmHyGDg)
+* WpBros Channel (https://www.youtube.com/channel/UCp__xlX9hHT3oPbnxK-Ch_g)https://github.com/ryanwelcher/twitch

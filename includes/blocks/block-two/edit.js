@@ -17,7 +17,7 @@ export default function Edit({
 
 	return (
 		<div {...useBlockProps()}>
-			<div className="block-label"> <span class="dashicons dashicons-editor-code"></span> Shortcode <span class="pull-right">show options <span class="dashicons dashicons-menu-alt2"></span></span></div>
+			<div className="block-label"> <span class="dashicons dashicons-editor-code"></span> Shortcode Extended</div>
 
 			<TextControl
 				label={ __( 'Enter shorcode here:', 'sagive' ) }
