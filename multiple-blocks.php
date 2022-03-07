@@ -16,23 +16,24 @@
 
 $blocks = array(
 	'block-one',		// Youtube Playlist Gallery (Manual)
-	'block-two',
+	'block-two',		// better shortcode 
 	'block-three',
 );
 
 
-function twitchstreams_multiple_blocks_block_init() {
+function sagive_gutenberg_blocks_init() {
 	global $blocks;
 
 	foreach( $blocks as $key => $block ) {
-		register_block_type( plugin_dir_path( __FILE__ ).'includes/blocks/'.$block.'/', array(
+		register_block_type( 
+			plugin_dir_path( __FILE__ ).'includes/blocks/'.$block.'/',
+			array(
 				'render_callback' => 'sagive_'.slugify($block).'_callback',
 			)
 		);
 	}
 }
-
-add_action( 'init', 'twitchstreams_multiple_blocks_block_init' );
+add_action( 'init', 'sagive_gutenberg_blocks_init' );
 
 
 	// load callback functions
@@ -69,3 +70,16 @@ function sagutenberg_plugin_block_categories( $categories ) {
     );
 }
 add_action( 'block_categories', 'sagutenberg_plugin_block_categories', 10, 2 );
+
+
+
+/********************************************************
+**  ENQUEUE SCRIPTS & STYLES
+********************************************************/
+function sagutenberg_enqueue_assets( $categories ) {
+
+	wp_enqueue_style( 'sagive-gutenberg-style', plugins_url('assets/global-backend.css', __FILE__) );
+    wp_enqueue_script( 'sagive-gutenberg-script', plugin_dir_url( __FILE__ ) . 'assets/global-backend.js?v='.time(), array(), false );
+
+}
+add_action( 'admin_enqueue_scripts', 'sagutenberg_enqueue_assets', 10, 2 );

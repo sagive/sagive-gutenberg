@@ -7,10 +7,54 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-twitchstreams-first-block {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+.sagive-youtube-playlist-gallery .galleryContainer {
+  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.sagive-youtube-playlist-gallery .ytPlaylistItem.active {
+  position: relative;
+}
+.sagive-youtube-playlist-gallery .ytPlaylistItem.active:after {
+  content: "Current";
+  background: red;
+  padding: 0px 4px;
+  color: white;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
+  font-size: 12px;
+}
+.sagive-youtube-playlist-gallery .responsive-youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.sagive-youtube-playlist-gallery .responsive-youtube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.sagive-youtube-playlist-gallery .ytPlaylistItem.active {
+  position: relative;
+}
+.sagive-youtube-playlist-gallery .ytPlaylistItem.active:after {
+  content: "Current";
+  background: red;
+  padding: 0px 4px;
+  color: white;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style-block-one.css.map*/

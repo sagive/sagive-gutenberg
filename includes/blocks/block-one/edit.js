@@ -18,8 +18,8 @@ export default function Edit({
 	return (
 		<div {...useBlockProps()}>
 
-			<div className="block-label">Youtube Playlist Gallery</div>
-			<iframe width="560" height="315" src={videoUrlist ? fixYoutubeURL(videoUrlist) : 'https://www.youtube.com/embed/EuDX4qfQb9c'} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div className="block-label"> <span class="dashicons dashicons-format-video"></span> Youtube Playlist Gallery <span class="pull-right">show options <span class="dashicons dashicons-menu-alt2"></span></span></div>
+			<iframe id="sgutPlayer" width="560" height="315" src={videoUrlist ? fixYoutubeURL(videoUrlist) : 'https://www.youtube.com/embed/EuDX4qfQb9c'} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			<div className="galleryContainer" style={{display:'grid', gridTemplateColumns: 'repeat('+items_per_row+', 1fr'}}>
 			{ 
 				videoUrlist && videoUrlist.length > 0 &&  videoUrlist.split('\n').map( (url, index) => {
@@ -27,7 +27,7 @@ export default function Edit({
 						let src = "https://img.youtube.com/vi/"+getYoutubeId(url)+"/0.jpg";
 						let nam = listName ? listName : 'Youtube Playlist';
 						let alt = nam+ ' ' + (index+1);
-						return <div id={index}><img src={src} alt={alt} /></div>
+						return <div id={index} className="ytPlaylistItem" onClick={runPlaylistItem}><img src={src} alt={alt} data-vid={getYoutubeId(url)} /></div>
 					}
 				}) 
 			}
@@ -93,4 +93,26 @@ function getYoutubeId(vidUrl) {
 		return id.length > 1 ? id[1] : id[0];
 	}
 }
+
+
+function runPlaylistItem(el) {
+	console.log(el.target);
+	let vid 	= el.target.getAttribute('data-vid');
+	let ytitem	= el.target.parentNode;
+	let ytlist	= ytitem.parentNode;
+
+	// remove all active classes (of parent)
+	let active_items = ytlist.querySelectorAll('.active');
+
+	if( active_items.length > 0 ) {
+		active_items.forEach(item => {
+			item.classList.remove('active');
+		});
+	}
+
+	// add active class to current item
+	ytitem.classList.add('active');
+	document.getElementById('sgutPlayer').src = "https://www.youtube.com/embed/"+vid+"?autoplay=1";
+}
+
 

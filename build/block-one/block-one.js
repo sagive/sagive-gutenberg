@@ -37,7 +37,14 @@ function Edit({
   let items_per_row = itemsPerRow ? itemsPerRow : 3;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "block-label"
-  }, "Youtube Playlist Gallery"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "dashicons dashicons-format-video"
+  }), " Youtube Playlist Gallery ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "pull-right"
+  }, "show options ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "dashicons dashicons-menu-alt2"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
+    id: "sgutPlayer",
     width: "560",
     height: "315",
     src: videoUrlist ? fixYoutubeURL(videoUrlist) : 'https://www.youtube.com/embed/EuDX4qfQb9c',
@@ -57,10 +64,13 @@ function Edit({
       let nam = listName ? listName : 'Youtube Playlist';
       let alt = nam + ' ' + (index + 1);
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        id: index
+        id: index,
+        className: "ytPlaylistItem",
+        onClick: runPlaylistItem
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
         src: src,
-        alt: alt
+        alt: alt,
+        "data-vid": getYoutubeId(url)
       }));
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -118,6 +128,25 @@ function getYoutubeId(vidUrl) {
     let id = last.split('=');
     return id.length > 1 ? id[1] : id[0];
   }
+}
+
+function runPlaylistItem(el) {
+  console.log(el.target);
+  let vid = el.target.getAttribute('data-vid');
+  let ytitem = el.target.parentNode;
+  let ytlist = ytitem.parentNode; // remove all active classes (of parent)
+
+  let active_items = ytlist.querySelectorAll('.active');
+
+  if (active_items.length > 0) {
+    active_items.forEach(item => {
+      item.classList.remove('active');
+    });
+  } // add active class to current item
+
+
+  ytitem.classList.add('active');
+  document.getElementById('sgutPlayer').src = "https://www.youtube.com/embed/" + vid + "?autoplay=1";
 }
 
 /***/ }),

@@ -7,22 +7,27 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-sagive-first-block {
-  border: 1px dotted red;
-}
-.wp-block-sagive-first-block .block-label {
-  background: #f9f9f9;
-  font-size: 12px;
-  font-style: italic;
-  color: #444;
-  padding: 2px 5px;
-  border-radius: 3px;
-  margin-bottom: 5px;
+  border: 1px dotted #ededed;
 }
 .wp-block-sagive-first-block .galleryContainer {
   display: -ms-grid;
   display: grid;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+}
+.wp-block-sagive-first-block .ytPlaylistItem.active {
+  position: relative;
+}
+.wp-block-sagive-first-block .ytPlaylistItem.active:after {
+  content: "Current";
+  background: red;
+  padding: 0px 4px;
+  color: white;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=block-one.css.map*/
