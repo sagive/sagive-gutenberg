@@ -6,7 +6,7 @@
  * Description:       	This has multiple blocks.
  * Requires at least: 	5.8
  * Requires PHP:      	7.0
- * Version:           	0.1.3
+ * Version:           	0.1.4
  * License:           	MIT
  * License URI:       	https://opensource.org/licenses/MIT
  * Text Domain:       	multiple-blocks
